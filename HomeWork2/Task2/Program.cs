@@ -1,12 +1,18 @@
 ﻿
-int number = 21830690;
-string text = number.ToString();
-if (text.Length < 3)
+void Findnum3(int num)
 {
-    Console.WriteLine("третьей цифры нет");
+    int number = num;
+    string text = number.ToString();
+    if (text.Length < 3)
+    {
+        Console.WriteLine("третьей цифры нет");
+    }
+    else
+    {
+        Console.WriteLine(text[2]);
+    }
 }
-else
-{
-    Console.WriteLine(text[2]);
-}
-Console.WriteLine(text);
+
+Console.WriteLine("Please enter any numbers");
+int num = Convert.ToInt32(Console.ReadLine());
+Findnum3(num);
