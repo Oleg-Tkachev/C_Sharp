@@ -10,15 +10,12 @@
 bool ChekPalindrom(int number)
 {
 string text = number.ToString();
-        if (text.Length == 5 && text[0] == text[4] && text[1] == text[3])
-        {
-        return true;
-        }
-        else
-        {
-        return false;
-        }
-    
+if (text.Length == 5 && text[0] == text[4] && text[1] == text[3])
+    {
+    return true;
+    }
+    else
+    return false;
 }
 
 Console.WriteLine("please enter a five-digit number");
