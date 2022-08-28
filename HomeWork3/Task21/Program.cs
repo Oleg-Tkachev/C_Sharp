@@ -33,9 +33,9 @@ if (!isNumberX1 || !isNumberX2 || !isNumberY1 || !isNumberY2 || !isNumberZ1 || !
 }
 
 
-double GetLenght(int x1, int y1, int z1, int x2, int y2, int z2)          // метод получаем длину отрезка в 3D
-{
+double GetLenght(int x1, int y1, int z1, int x2, int y2, int z2)            // метод получаем длину отрезка в 3D
+    {    
     return Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2) + Math.Pow((z2 - z1), 2));
-}
+    }
 
 Console.WriteLine($"расстояние: {GetLenght(x1, y1, z1, x2, y2, z2)}");
