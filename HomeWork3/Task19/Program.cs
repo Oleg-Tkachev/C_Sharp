@@ -31,5 +31,5 @@ bool CheckPolindrome(int namber)               // проверка на зерк
     return false;
 }
 
-bool check = CheckPolindrome(number);
-Console.WriteLine(check);
+bool check = CheckPolindrome(number);           // вызов метода
+Console.WriteLine(check);                       // вывод результата
