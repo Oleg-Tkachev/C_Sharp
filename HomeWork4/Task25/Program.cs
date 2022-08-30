@@ -8,25 +8,31 @@
 
 
 Console.WriteLine("Введите число A:");
-double numberA = Convert.ToDouble(Console.ReadLine());
+int numberA = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Введите число B (степень):");
-double numberB = Convert.ToDouble(Console.ReadLine());
-if (numberB == 0)
+int numberB = Convert.ToInt32(Console.ReadLine());
+if (numberB == 0)  
 {
     Console.WriteLine("Любое число в степени ^0 = 1");
     return;
 }
 
-double GetExpondouble(double numberA, double numberB)
+if (numberA == 1)
 {
-  double result = 1;
-  for(double i=1; i <= numberB; i++)
-  {
-    result = result * numberA;
-  }
-    return result;
+    Console.WriteLine("1 в любой степени = 1");
+    return;
 }
 
-double result = GetExpondouble(numberA, numberB);
+int GetExponent (int numberA, int numberB) 
+{
+  int result = 1;
+  for(int i=1; i <= numberB; i++)     // цикл, как понять цикл идет по numberA или numberB ???
+  {                                   // путем экспериментов поставил i <= numberB
+    result = result * numberA;
+  }
+  return result;
+}
+
+int result = GetExponent(numberA, numberB);
 Console.WriteLine($"Результат: {result}");
