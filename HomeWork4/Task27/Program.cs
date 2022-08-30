@@ -7,28 +7,28 @@
 9021 ==> 12
 */
 
-Console.Write("Plase enter number: ");
-bool isNumber = int.TryParse(Console.ReadLine(), out int number);  // проверка на ввод цифр не буквы
+Console.Write("Plase enter number:");
+bool isNumber = int.TryParse(Console.ReadLine(), out int num2);  // проверка на ввод цифр не буквы
 if (isNumber != true)
 {
     Console.WriteLine("Некорректный ввод данных");
     return;
 }
 
-int GetSumDigi(int number)
+int GetSumDigi(int num2)
 {
-    int len = Convert.ToString(number).Length;
-    int advance = 0;
+    string text = Convert.ToString(num2);  // длина числа путем перевода в строку и методом Length
+    int num1 = 0; 
     int result = 0;
 
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i < text.Length; i++)
     {
-        advance = number - number % 10;
-        result = result + (number - advance);
-        number = number / 10;
+        num1 = num2 - num2 % 10;
+        result = result + (num2 - num1);
+        num2 = num2 / 10;
     }
     return result;
 }
 
-int sum = GetSumDigi(number);
+int sum = GetSumDigi(num2);
 Console.WriteLine($"Сумма цифр в числе: {sum}");
