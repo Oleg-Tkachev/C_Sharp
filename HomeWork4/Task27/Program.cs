@@ -8,27 +8,27 @@
 */
 
 Console.Write("Plase enter number:");
-bool isNumber = int.TryParse(Console.ReadLine(), out int num2);  // проверка на ввод цифр не буквы
+bool isNumber = int.TryParse(Console.ReadLine(), out int number);  // проверка на ввод цифр не буквы
 if (isNumber != true)
 {
     Console.WriteLine("Некорректный ввод данных");
     return;
 }
 
-int GetSumDigi(int num2)
+int GetSumDigi(int number)
 {
-    string text = Convert.ToString(num2);  // длина числа путем перевода в строку и методом Length
+    string text = Convert.ToString(number);  // длина числа путем перевода в строку и методом Length
     int num1 = 0; 
     int result = 0;
 
-    for (int i = 0; i < text.Length; i++)
+    for (int i = 0; i < text.Length; i++)  //перебераем уже text поочереди
     {
-        num1 = num2 - num2 % 10;
-        result = result + (num2 - num1);
-        num2 = num2 / 10;
-    }
+        num1 = number - number % 10;           // К примеру "345" num1 = 345 - 345 % 10 ===> 340
+        result = result + (number - num1);     // 0 = 0 + (345 - 340) ===> 5 записали в result
+        number = number / 10;                  // 345 = 345 / 10 ===> 34 
+    }                                          // далее цикл повторяется до i< text.Length;
     return result;
 }
 
-int sum = GetSumDigi(num2);
+int sum = GetSumDigi(number);
 Console.WriteLine($"Сумма цифр в числе: {sum}");
