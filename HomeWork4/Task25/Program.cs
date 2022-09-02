@@ -36,3 +36,4 @@ int GetExponent (int numberA, int numberB)
 
 int result = GetExponent(numberA, numberB);
 Console.WriteLine($"Результат: {result}");
+  
