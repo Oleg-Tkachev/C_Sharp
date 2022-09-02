@@ -13,43 +13,33 @@ if (!isNumber || length <= 0)
     return;
 }
 
-
-int[] array = RandomArrey(length);           // передаем длину массива lenght в метод Random
-
+int[] array = RandomArrey(length);          // передаем длину массива lenght в метод Random
+EventNumbers(array);                        //передаем рандомный массив в метод подсчета положительных чисел
 
 int[] RandomArrey(int len)                  // метод по генерации рандомных чисел от 100 до 999
 {
     int[] array = new int[length];
     Random random = new Random();
-    for (int i = 0; i <= length; i++)
+    for (int i = 0; i < length; i++)        // цикл заполняем массив
     {
         array[i] = random.Next(100, 1000);  // случайные числа от 100 до 999
-        Console.Write($"/{array[i]}/");
     }
     return array;
 }
 
-//int num = EventNumbers(RandomArrey);
-//Console.WriteLine(num);
-
-
-
-
-//int  EventNumbers (int [] arrey);   //передаем рандомный массив в метод подсчета положительных чисел
-
-
-void EventNumbers(int RandomArrey)     // метод подсчета положительных чисел
+void EventNumbers(int[] random)             // метод подсчета положительных чисел
 {
     int count = 0;
-    int len = 4;
-    for (int i = 0; i <= len; i++)
+    Console.Write("[");
+    for (int i = 0; i < length; i++)
     {
         if (array[i] % 2 == 0)
         {
             count++;
         }
-    Console.WriteLine(count);
-    }
+        Console.Write($" {array[i]}");             
+    }                                                                     // Введите длину массива:
+    Console.Write(" ]");                                                  // 7
+    Console.WriteLine();                                                  // [ 753 124 749 239 962 999 903 ] Запятые так и не сделал((
+    Console.WriteLine($"Количество чётных чисел в массиве  = {count}");   // Количество чётных чисел в массиве  = 2
 }
-
-
