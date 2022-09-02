@@ -5,28 +5,50 @@
 */
 
 
-double[] arrayRealNumbers = new double[10];
-  for (int i = 0; i < arrayRealNumbers.Length; i++ )
-  {
-    arrayRealNumbers[i] = new Random().Next(1, 100);
-    Console.Write(arrayRealNumbers[i] + " ");
-  }
+Console.WriteLine("Введите длину массива:");
+bool isNumber = int.TryParse(Console.ReadLine(), out int length);  //получаем длину массива
+if (!isNumber || length <= 0)
+{
+    Console.WriteLine("Некорректный ввод");                        //проверяем 
+    return;
+}
 
-double maxNumber = arrayRealNumbers[0];
-double minNumber = arrayRealNumbers[0];
+int [] array = RandomArrey(length);              // передаем длину массива lenght в метод Random
 
-  for (int i = 1; i < arrayRealNumbers.Length; i++)
-  {
-    if (maxNumber < arrayRealNumbers[i])
+
+int [] RandomArrey(int len)                      // метод по генерации рандомных чисел от 100 до 999
+{
+    int[] array = new int [length];
+    for (int i = 0; i < length; i++)               // цикл заполняем массив
     {
-      maxNumber = arrayRealNumbers[i];
+        array[i] = new Random().NextDouble(-100 , 101);
+        Console.Write(array[i] + " ");
     }
-        if (minNumber > arrayRealNumbers[i])
+return array;
+}
+
+
+int maxNumber = array[0];
+int minNumber = array[0];
+GetMaX_Min_Numbers(array);
+
+void GetMaX_Min_Numbers(int [] number)
+{
+
+    for (int i = 1; i < array.Length; i++)
     {
-      minNumber = arrayRealNumbers[i];
+      if (maxNumber < array[i])
+        {
+            maxNumber = array[i];
+        }
+          //Console.WriteLine(maxNumber);
+      if (minNumber > array[i])
+        {
+            minNumber = array[i];
+        }
+          //Console.WriteLine(minNumber);
     }
-  }
+}
 
-  double decision = maxNumber - minNumber;
-
-  Console.WriteLine($"\nразница между между максимальным ({maxNumber}) и минимальным({minNumber}) элементами: {decision}");
+int result = maxNumber - minNumber;
+Console.WriteLine($"Разница между между максимальным [{maxNumber}] и минимальным[{minNumber}] элементами: {result}");
