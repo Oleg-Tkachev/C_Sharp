@@ -14,7 +14,6 @@ if (!isNumber || len <= 0)
     return;
 }
 
-
 BuildArray(len);
 
 void BuildArray(int len)
@@ -38,19 +37,4 @@ void BuildArray(int len)
     Console.WriteLine($"Количество чисел больше нуля: {count}");
 }
 
-
-// int CheckPositivNum(int [] array)
-// {
-//     int count = 0;
-//     int i = 0;
-//     while (i > array.Length)
-//     {
-//         if (array[i] > 0) count = count+1;
-//         Console.WriteLine(count);
-//         i++;
-//         Console.WriteLine(i);
-//     }
-//     Console.WriteLine(count);
-//     return count;
-// }
 
