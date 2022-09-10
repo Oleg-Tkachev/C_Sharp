@@ -77,8 +77,9 @@ void DetectingNumberInArray(int[,] array)
             if (array[i, j] == x)
             {
                 Console.WriteLine($"Индекс числа {x} = [{i}, {j}]");
-            }  
+                return;
+            }
         }
-    } 
+    }
     Console.WriteLine("Такой цифры нет :-( ");
 }
