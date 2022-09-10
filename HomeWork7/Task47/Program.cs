@@ -6,7 +6,7 @@ m = 3, n = 4.
 8 7,8 -7,1 9
 */
 
-Console.WriteLine("Введите количество строк: ");
+Console.WriteLine("Введите количество строк массива: ");
 bool isNumberM = int.TryParse(Console.ReadLine(), out int m);
 if (!isNumberM)
 {
@@ -14,7 +14,7 @@ if (!isNumberM)
     return;
 }
 
-Console.WriteLine("Введите количество столбцов: ");
+Console.WriteLine("Введите количество столбцов массива: ");
 bool isNumberN = int.TryParse(Console.ReadLine(), out int n);
 if (!isNumberN)
 {
