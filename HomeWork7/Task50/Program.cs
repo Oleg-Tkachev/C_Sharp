@@ -11,7 +11,7 @@
 */
 
 
-Console.WriteLine("Введите искомое число от 1 до 100: ");
+Console.WriteLine("Введите искомое число от 1 до 9 включительно: ");
 bool isNumberX = int.TryParse(Console.ReadLine(), out int x);
 if (!isNumberX)
 {
@@ -77,8 +77,8 @@ void DetectingNumberInArray(int[,] array)
             if (array[i, j] == x)
             {
                 Console.WriteLine($"Индекс числа {x} = [{i}, {j}]");
-            }
+            }  
         }
     } 
-    //Console.WriteLine("Такой цифры нет :-( ");
+    Console.WriteLine("Такой цифры нет :-( ");
 }
