@@ -83,3 +83,4 @@ void DetectingNumberInArray(int[,] array)
     }
     Console.WriteLine("Такой цифры нет :-( ");
 }
+
