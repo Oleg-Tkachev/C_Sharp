@@ -61,24 +61,33 @@ int[,] CreateRandomArray(int m, int n)       // метод создания ра
 
 void MinSumInString(int[,] array)  // находим мин сумму в строках
 {
-    int minsum = Int32.MaxValue;   // для исключения переполнения
-    int indexLine = 0;
-    int sum = 0;
+
+    
+    int [] sumI = new int [array.GetLength(0)];
+
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            sum = sum + array[i, j];
-        }
-        if (sum < minsum)
-        {
-            minsum = sum;
-            indexLine++;
+            sumI [i] += array[i, j];
         }
     }
-    Console.WriteLine($"Cтрока с наименьшей суммой всех элементов №: {indexLine}");
-    Console.WriteLine($"Суммой елементов этой строки: {minsum}");
+    
+    int sum = sumI[0];
+    int indexLine = 0;
+
+    for (int i = 1; i < array.GetLength(0); i++)
+    {
+
+        if (sum > sumI[i])
+        {
+            sum = sumI[i];
+            indexLine = i;
+        }
+    }
+    Console.WriteLine($"Cтрока с наименьшей суммой всех элементов №: {indexLine + 1}");
+    Console.WriteLine($"Суммой элементов этой строки: {sum}");
 
 }
 
