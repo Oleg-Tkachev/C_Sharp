@@ -30,7 +30,6 @@ Print2DArray(result);                            // печатаем масси�
 Print2DArray(SortDescendingInString(result));    // печатаем сортированный массив 
 
 
-
 void Print2DArray(int[,] array)                  // метод печать массива
 {
     for (int i = 0; i < array.GetLength(0); i++)
