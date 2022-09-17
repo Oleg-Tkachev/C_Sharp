@@ -11,71 +11,71 @@
 
 */
 
+Console.Write("Введите размер массива x: ");
+bool isNumberx = int.TryParse(Console.ReadLine(), out int x);
 
-int deep1 = InputInt("Введите размерность 1: ");
-int deep2 = InputInt("Введите размерность 2: ");
-int deep3 = InputInt("Введите размерность 3: ");
-int countNums = 89;
+Console.Write("Введите размер массива y: ");
+bool isNumbery = int.TryParse(Console.ReadLine(), out int y);
 
-if (deep1 * deep2 * deep3 > countNums)
+Console.Write("Введите размер массива z: ");
+bool isNumberz = int.TryParse(Console.ReadLine(), out int z);
+
+
+if (!isNumberx || !isNumbery || !isNumberz)
 {
-    Console.Write("Массив слишком большой");
+    Console.WriteLine("Invalid number");
     return;
 }
 
-int[,,] resultNums = Create3DMassive(deep1, deep2, deep3);
 
-for (int i = 0; i < resultNums.GetLength(0); i++)
+int[,,] array3D = new int[x, y, z];            // создаем массив
+
+void Print3DArray(int[,,] array3D)             // метод печати в консоль + 1 цикл для 3D
 {
-    for (int j = 0; j < resultNums.GetLength(1); j++)
+    for (int k = 0; k < z; k++)
     {
-        for (int k = 0; k < resultNums.GetLength(2); k++)
+        for (int i = 0; i < x; i++)
         {
-            Console.WriteLine($"[{i},{j},{k}] - {resultNums[i, j, k]}");
+            for (int j = 0; j < y; j++)
+            {
+                Console.Write($"{array3D[i, j, k]} ({i},{j},{k})  ");
+            }
+            Console.WriteLine();
         }
         Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
 
-int[,,] Create3DMassive(int size1, int size2, int size3)
+int [,,] FillArray(int x, int y, int z)
 {
-    int[,,] array = new int[size1, size2, size3];
-    int[] values = new int[countNums];
-    int num
-     = 10;
-    for (int i = 0; i < values.Length; i++)
-        values[i] = num
-        ++;
-
-    for (int i = 0; i < values.Length; i++)
+    int[] temp = new int[x * y * z];                // временная temp в нее будем генерировать цифры
+    temp[0] = new Random().Next(10, 100);
+    for (int i = 1; i < temp.Length; i++)
     {
-        int randomInd = new Random().Next(0, values.Length);
-        int temp = values[i];
-        values[i] = values[randomInd];
-        values[randomInd] = temp;
-    }
-
-    int valueIndex = 0;
-
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
+        temp[i] = new Random().Next(10, 100);
+        for (int j = 0; j < i; j++)
         {
-            for (int k = 0; k < array.GetLength(2); k++)
+            while (temp[i] == temp[j])               // условие, если цифры уже совпали
             {
-                array[i, j, k] = values[valueIndex++];
+                temp[i] = new Random().Next(10, 100);
+                j = 0;
             }
         }
     }
-    return array;
-}
+    int count = 0;
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < y; j++)
+        {
+            for (int k = 0; k < z; k++)
+            {
+                array3D[i, j, k] = temp[count];
+                count++;
+            }
+        }
+    } return array3D;
+}   
 
 
-int InputInt(string output)
-{
-    Console.Write(output);
-    return int.Parse(Console.ReadLine());
-}
-
+Print3DArray(FillArray( x, y, z));   // на печать 
