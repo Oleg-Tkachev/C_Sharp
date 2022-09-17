@@ -18,27 +18,25 @@ if (!isNumber)
 }
 
 int[,] sqareArray = new int[size, size];         // создаем массив квадрат size * size
-
-int start = 0;                                    // старт от 1 до ++ 
+int start = 0;                                   // старт от 0 до ++ 
 int i = 0;
 int j = 0;
 
-while (start < Math.Pow(size,2))     // квадрат размера для заполнения
+while (start < Math.Pow(size, 2))                // квадрат размера для заполнения
 {
-  sqareArray[i, j] = start;
-  start++;
-  if (i <= j + 1 && i + j < sqareArray.GetLength(1) - 1)
-      j++;
-  else if (i < j && i + j >= sqareArray.GetLength(0) - 1)
-      i++;
-  else if (i >= j && i + j > sqareArray.GetLength(1) - 1)
-      j--;
-  else
-      i--;
+    sqareArray[i, j] = start;
+    start++;
+    if (i <= j + 1 && i + j < sqareArray.GetLength(1) - 1)
+        j++;
+    else if (i < j && i + j >= sqareArray.GetLength(0) - 1)
+        i++;
+    else if (i >= j && i + j > sqareArray.GetLength(1) - 1)
+        j--;
+    else
+        i--;
 }
 
 Print2DArray(sqareArray);                         // в печать
-
 
 void Print2DArray(int[,] array)                   // метод печать массива
 {
@@ -46,11 +44,8 @@ void Print2DArray(int[,] array)                   // метод печать м�
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            //if (array[i, j] / 10 <= 0)
-                Console.Write($" {array[i, j]} ");
-            //else Console.Write($"{array[i, j]} ");
+            Console.Write($" {array[i, j]} ");
         }
-
         Console.WriteLine();                           // переход на новую строку
     }
 }
